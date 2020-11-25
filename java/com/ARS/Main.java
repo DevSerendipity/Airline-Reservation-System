@@ -3,9 +3,11 @@ package com.ARS;
 import com.ARS.flight.Flight;
 import com.ARS.flight.controller.FlightController;
 import com.ARS.flight.view.FlightView;
+
 import com.ARS.ticket.Ticket;
 import com.ARS.ticket.controller.TicketController;
 import com.ARS.ticket.view.TicketView;
+
 import com.ARS.user.User;
 import com.ARS.user.controller.UserController;
 import com.ARS.user.view.UserView;
@@ -13,16 +15,21 @@ import com.ARS.user.view.UserView;
 public class Main {
 
     public static void main(String[] args) {
+
         User userModel = retrieveUser();
         UserView userView = new UserView();
         UserController userController = new UserController(userModel, userView);
+
         Flight flightModel = retrieveFlight();
         FlightView flightView = new FlightView();
         FlightController flightController = new FlightController(flightModel, flightView);
+
         Ticket ticketModel = retrieveTicket();
         TicketView ticketView = new TicketView();
         TicketController ticketController = new TicketController(ticketModel, ticketView);
+
         isChecking(userController.getAccount_money(), flightController.getPrice());
+
         userController.updateView();
         flightController.updateView();
         ticketController.updateView();
@@ -60,13 +67,12 @@ public class Main {
             ticket.setFrom(ticket.getFrom());
             ticket.setDestination(ticket.getDestination());
         }
-
         ticket.setIATA_airline_code(ticket.getIATA_airline_code());
         ticket.getAirline_class();
         ticket.setBoarding_time(ticket.getBoarding_time());
         ticket.setGate(ticket.getGate());
         ticket.setDate(ticket.getDate());
-        ticket.setSeat(ticket.calculateNewRandomSeat());
+        ticket.calculateNewRandomSeat();
         return ticket;
     }
 
