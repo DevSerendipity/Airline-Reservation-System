@@ -1,20 +1,24 @@
 package com.ARS.jfx;
 
 import com.ARS.ticket.Ticket;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
+
 import java.time.format.DateTimeFormatter;
+
 import java.util.Properties;
-import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
+
 import javafx.stage.Stage;
 
 public class Controller {
@@ -46,7 +50,7 @@ public class Controller {
     @FXML
     void MouseExited() {
         if (!this.luggage.getItems().contains(1)) {
-            this.luggage.getItems().addAll(1, 2,3 );
+            this.luggage.getItems().addAll(1, 2, 3);
         }
 
     }
@@ -63,88 +67,84 @@ public class Controller {
             this.luggagePrice = 0;
             this.luggagePrice += 35;
         }
-
     }
 
     @FXML
     void onClassPressed() {
-        for(int i = 0; i < ticket.getAirline_class().size() && !this.classes.getItems().contains(this.ticket.getAirline_class().get(i)); ++i) {
-            this.classes.getItems().add(this.ticket.getAirline_class().get(i));
+        for (int i = 0; i < ticket.getAirline_class().size(); ++i) {
+            classes.getItems().add(ticket.getAirline_class().get(i));
         }
-
     }
 
     @FXML
     void onDestinationPressed() {
-        for(int i = 0; i < this.ticket.getDestination().size() && !this.destination.getItems().contains(this.ticket.getDestination().get(i)); ++i) {
-            this.destination.getItems().add(this.ticket.getDestination().get(i));
+        for (int i = 0; i < ticket.getDestination().size(); ++i) {
+            destination.getItems().add(ticket.getDestination().get(i));
         }
-
     }
 
     @FXML
     void onFromPressed() {
-        for(int i = 0; i < this.ticket.getFrom().size() && !this.from.getItems().contains(this.ticket.getFrom().get(i)); ++i) {
-            this.from.getItems().add(this.ticket.getFrom().get(i));
+        for (int i = 0; i < ticket.getFrom().size(); ++i) {
+            from.getItems().add(ticket.getFrom().get(i));
         }
-
     }
 
     @FXML
     void onDisplay() {
         this.money_id.setDisable(true);
         int price;
-        int var10001;
-        switch(this.destination.getSelectionModel().getSelectedIndex()) {
+        int totalPrice;
+        switch (destination.getSelectionModel().getSelectedIndex()) {
             case 0:
                 price = 40;
-                var10001 = price + this.getLuggage(this.luggagePrice);
-                this.value("$" + var10001);
+                totalPrice = price + getLuggage(luggagePrice);
+                value("$" + totalPrice);
                 break;
             case 1:
                 price = 80;
-                var10001 = price + this.getLuggage(this.luggagePrice);
-                this.value("$" + var10001);
+                totalPrice = price + getLuggage(luggagePrice);
+                value("$" + totalPrice);
                 break;
             case 2:
                 price = 55;
-                var10001 = price + this.getLuggage(this.luggagePrice);
-                this.value("$" + var10001);
+                totalPrice = price + getLuggage(luggagePrice);
+                value("$" + totalPrice);
                 break;
             case 3:
                 price = 35;
-                var10001 = price + this.getLuggage(this.luggagePrice);
-                this.value("$" + var10001);
+                totalPrice = price + getLuggage(luggagePrice);
+                value("$" + totalPrice);
                 break;
             case 4:
                 price = 60;
-                var10001 = price + this.getLuggage(this.luggagePrice);
-                this.value("$" + var10001);
+                totalPrice = price + getLuggage(luggagePrice);
+                value("$" + totalPrice);
                 break;
             case 5:
                 price = 70;
-                var10001 = price + this.getLuggage(this.luggagePrice);
-                this.value("$" + var10001);
+                totalPrice = price + this.getLuggage(luggagePrice);
+                value("$" + totalPrice);
                 break;
             case 6:
                 price = 100;
-                var10001 = price + this.getLuggage(this.luggagePrice);
-                this.value("$" + var10001);
+                totalPrice = price + getLuggage(luggagePrice);
+                value("$" + totalPrice);
                 break;
             case 7:
                 price = 25;
-                var10001 = price + this.getLuggage(this.luggagePrice);
-                this.value("$" + var10001);
+                totalPrice = price + getLuggage(luggagePrice);
+                value("$" + totalPrice);
                 break;
             case 8:
                 price = 30;
-                var10001 = price + this.getLuggage(this.luggagePrice);
-                this.value("$" + var10001);
+                totalPrice = price + getLuggage(luggagePrice);
+                value("$" + totalPrice);
                 break;
             case 9:
                 price = 20;
-                var10001 = price + this.getLuggage(this.luggagePrice);
-                this.value("$" + var10001);
+                totalPrice = price + getLuggage(luggagePrice);
+                value("$" + totalPrice);
         }
     }
 
@@ -153,20 +153,20 @@ public class Controller {
     }
 
     private void value(String values) {
-        this.money_id.setText(values);
+        money_id.setText(values);
     }
 
     @FXML
     void onPressed() throws IOException {
-        Stage stage = (Stage)this.checkout.getScene().getWindow();
+        Stage stage = (Stage) checkout.getScene().getWindow();
         stage.close();
         if (!stage.isFocused()) {
-            this.fillMap();
+            fillMap();
         }
 
         FXMLLoader loader2 = new FXMLLoader();
         loader2.setController(new UsersOption());
-        Parent root = FXMLLoader.load(this.getClass().getResource("/anotherSmart.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/anotherSmart.fxml"));
         Scene scene = new Scene(root);
         stage.setTitle("JavaFX 13");
         stage.setScene(scene);
@@ -176,7 +176,6 @@ public class Controller {
     private void fillMap() {
         try {
             FileOutputStream output = new FileOutputStream("C:/Users/Emir/OneDrive/Documents/NewOne/Airline-Reservation-System/src/main/resources/reports.properties");
-
             try {
                 Properties prop = new Properties();
                 String dates = this.date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
@@ -190,17 +189,17 @@ public class Controller {
                 prop.setProperty("Price", this.money_id.getText());
                 prop.store(output, null);
                 System.out.println(prop);
-            } catch (Throwable var5) {
+            } catch (Throwable e) {
                 try {
                     output.close();
-                } catch (Throwable var4) {
-                    var5.addSuppressed(var4);
+                } catch (Throwable el) {
+                    e.addSuppressed(el);
                 }
-                throw var5;
+                throw e;
             }
             output.close();
-        } catch (IOException var6) {
-            var6.printStackTrace();
+        } catch (IOException exception) {
+            exception.printStackTrace();
         }
     }
 }
