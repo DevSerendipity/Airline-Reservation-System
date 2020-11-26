@@ -1,6 +1,7 @@
 package com.ARS.flight;
 
 import com.ARS.user.User;
+
 import org.apache.commons.math3.util.Precision;
 
 public class Flight {
