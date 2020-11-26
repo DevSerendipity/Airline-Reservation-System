@@ -2,8 +2,11 @@ package com.ARS.ticket.controller;
 
 import com.ARS.ticket.Ticket;
 import com.ARS.ticket.view.TicketView;
+
 import java.awt.Image;
+
 import java.time.LocalDate;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -44,10 +47,6 @@ public class TicketController {
         this.model.setGate(gate);
     }
 
-    public void setSeat(String seat) {
-        this.model.setSeat(seat);
-    }
-
     public void setDate(LocalDate date) {
         this.model.setDate(date);
     }
@@ -84,7 +83,7 @@ public class TicketController {
         return this.model.getGate();
     }
 
-    public String getSeat() {
+    public String calculateNewRandomSeat() {
         return this.model.calculateNewRandomSeat();
     }
 
