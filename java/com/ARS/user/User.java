@@ -1,4 +1,3 @@
-
 package com.ARS.user;
 
 public class User {
