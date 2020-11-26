@@ -49,23 +49,23 @@ public class Controller {
 
     @FXML
     void MouseExited() {
-        if (!this.luggage.getItems().contains(1)) {
-            this.luggage.getItems().addAll(1, 2, 3);
+        if (!luggage.getItems().contains(1)) {
+            luggage.getItems().addAll(1, 2, 3);
         }
 
     }
 
     @FXML
     void onMousePressedLuggage() {
-        if (this.luggage.getSelectionModel().getSelectedIndex() == 0) {
-            this.luggagePrice = 0;
-            this.luggagePrice += 19;
-        } else if (this.luggage.getSelectionModel().getSelectedIndex() == 1) {
-            this.luggagePrice = 0;
-            this.luggagePrice += 27;
+        if (luggage.getSelectionModel().getSelectedIndex() == 0) {
+            luggagePrice = 0;
+            luggagePrice += 19;
+        } else if (luggage.getSelectionModel().getSelectedIndex() == 1) {
+            luggagePrice = 0;
+            luggagePrice += 27;
         } else if (this.luggage.getSelectionModel().getSelectedIndex() == 2) {
-            this.luggagePrice = 0;
-            this.luggagePrice += 35;
+            luggagePrice = 0;
+            luggagePrice += 35;
         }
     }
 
