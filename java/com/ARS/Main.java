@@ -12,6 +12,8 @@ import com.ARS.user.User;
 import com.ARS.user.controller.UserController;
 import com.ARS.user.view.UserView;
 
+import java.awt.*;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -68,7 +70,7 @@ public class Main {
             ticket.setDestination(ticket.getDestination());
         }
         ticket.setIATA_airline_code(ticket.getIATA_airline_code());
-        ticket.getAirline_class();
+        ticket.setAirline_class(ticket.getAirline_class());
         ticket.setBoarding_time(ticket.getBoarding_time());
         ticket.setGate(ticket.getGate());
         ticket.setDate(ticket.getDate());
@@ -85,12 +87,9 @@ public class Main {
             System.out.printf("Customer %s has a ticket", User.getName());
         } else {
             System.err.printf("Customer %s don't have a ticket", User.getName());
-/*
             SystemColor.LIGHT_GRAY.darker();
-*/
             System.exit(404);
         }
 
     }
 }
-
