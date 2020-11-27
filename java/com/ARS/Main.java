@@ -87,7 +87,7 @@ public class Main {
             System.out.printf("Customer %s has a ticket", User.getName());
         } else {
             System.err.printf("Customer %s don't have a ticket", User.getName());
-            SystemColor.LIGHT_GRAY.darker();
+            SystemColor.MAGENTA.brighter();
             System.exit(404);
         }
 

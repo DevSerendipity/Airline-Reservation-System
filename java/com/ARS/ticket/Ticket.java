@@ -51,8 +51,8 @@ public class Ticket {
 
     public String getBoarding_time() {
         LocalDateTime now = LocalDateTime.of(1, 1, (int)(Math.random() * 4.0D + 1.0D), (int)(Math.random() * 24.0D), (int)(Math.random() * 60.0D));
-        this.boarding_time = now.format(DateTimeFormatter.ofPattern("dd HH:mm"));
-        return this.boarding_time;
+        boarding_time = now.format(DateTimeFormatter.ofPattern("dd HH:mm"));
+        return boarding_time;
     }
 
     public int getGate() {

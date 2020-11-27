@@ -3,8 +3,7 @@ package com.ARS.user;
 public class User {
     private static String name = "Bob";
     private String last_name;
-    private double account_money = (double)((int)(Math.random() * 1000.0D));
-    private boolean hasATicket;
+    private double account_money = ((int)(Math.random() * 100.0D));
 
     public static String getName() {
         return name;
@@ -18,10 +17,6 @@ public class User {
         return this.account_money;
     }
 
-    public boolean getHasATicket() {
-        return this.hasATicket;
-    }
-
     public void setName(String name) {
         User.name = name;
     }
@@ -32,9 +27,5 @@ public class User {
 
     public void setAccount_money(double account_money) {
         this.account_money = account_money;
-    }
-
-    public void setHasATicket(boolean hasATicket) {
-        this.hasATicket = hasATicket;
     }
 }

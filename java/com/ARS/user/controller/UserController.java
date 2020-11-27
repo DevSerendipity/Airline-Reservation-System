@@ -13,19 +13,15 @@ public class UserController {
     }
 
     public void setName(String name) {
-        this.model.setName(name);
+        model.setName(name);
     }
 
     public void setLastName(String lastName) {
-        this.model.setLast_name(lastName);
+        model.setLast_name(lastName);
     }
 
     public void setAccount_money(double account_money) {
-        this.model.setAccount_money(account_money);
-    }
-
-    public void setHasATicket(boolean hasATicket) {
-        this.model.setHasATicket(hasATicket);
+        model.setAccount_money(account_money);
     }
 
     public String getName() {
@@ -33,18 +29,14 @@ public class UserController {
     }
 
     public String getLastName() {
-        return this.model.getLast_name();
+        return model.getLast_name();
     }
 
     public double getAccount_money() {
-        return this.model.getAccount_money();
-    }
-
-    public boolean getHasATicket() {
-        return this.model.getHasATicket();
+        return model.getAccount_money();
     }
 
     public void updateView() {
-        this.view.UserDetails(User.getName(), this.model.getLast_name());
+        view.UserDetails(User.getName(), model.getLast_name());
     }
 }
