@@ -84,12 +84,31 @@ public class Main {
 
     private static void isChecking(double val1, double val2) {
         if (hasMoney(val1, val2)) {
-            System.out.printf("Customer %s has a ticket", User.getName());
+            System.out.printf("Customer %s has money for a ticket", User.getName());
         } else {
-            System.err.printf("Customer %s don't have a ticket", User.getName());
+            System.err.printf("Customer %s doesn't have money for a ticket", User.getName());
             SystemColor.MAGENTA.brighter();
             System.exit(404);
         }
-
     }
 }
+// what is current version doing?
+/*
+it is giving me the users name [typed in value]
+it is giving me the users last name [typed in value]
+Flight
+checking does the user got money for the flight [automatic]
+generating random values for fare_tarries, flight price, luggage price ( need to generate standard fare tarries, flight price based on flight, luggage price based on numbers of luggages
+Ticket
+making a condition that the destination and the place he is going from are not the  same [automatic]
+checking does the customer have a ticket
+generating a random value, accessing the passenger name, giving a list of flights,from's,destinations,companies that the program can access [automatic]
+generating a random airline code [automatic]
+List of airline class that the program can access [automatic]
+    private List<String> airline_class = Arrays.asList("World Traveler", "CLUB WORLD", "WORLD TRAVELER PLUS");
+    private String boarding_time;
+    private int gate = (int)(Math.random() * 5.0D + 1.0D);
+    private static final List<String> AVAILABLE_AIRCRAFT_COLUMNS = Arrays.asList("A", "B", "C", "D", "E", "F", "G", "H", "J", "K");
+    private LocalDate date = LocalDate.now();
+    private Image barcode;
+ */

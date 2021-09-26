@@ -7,6 +7,7 @@ import java.io.IOException;
 
 import java.time.format.DateTimeFormatter;
 
+import java.util.Objects;
 import java.util.Properties;
 
 import javafx.fxml.FXML;
@@ -163,7 +164,7 @@ public class Controller {
 
         FXMLLoader loader2 = new FXMLLoader();
         loader2.setController(new UsersOption());
-        Parent root = FXMLLoader.load(getClass().getResource("/anotherSmart.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/anotherSmart.fxml")));
         Scene scene = new Scene(root);
         stage.setTitle("JavaFX 13");
         stage.setScene(scene);
@@ -172,7 +173,7 @@ public class Controller {
 
     private void fillMap() {
         try {
-            FileOutputStream output = new FileOutputStream("C:/Users/Emir/OneDrive/Documents/NewOne/Airline-Reservation-System/src/main/resources/reports.properties");
+            FileOutputStream output = new FileOutputStream("C:/coding/programming related/Airline-Reservation-System/src/main/resources/reports.properties");
             try {
                 Properties prop = new Properties();
                 String dates = this.date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));

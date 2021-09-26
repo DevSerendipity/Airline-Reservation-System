@@ -1,7 +1,5 @@
 package com.ARS.ticket.view;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.time.LocalDate;
 
 import java.util.List;
@@ -23,7 +21,7 @@ public class TicketView {
         System.out.println("-------------");
     }
 
-    private String randomElement(@NotNull List<String> element){
+    private String randomElement(List<String> element){
        return element.get((int)(Math.random() * element.size()));
     }
 }
