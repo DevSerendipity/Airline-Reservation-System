@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ARS.jfx.Controller">
-    <SplitPane dividerPositions="0.5" focusTraversable="false" prefHeight="400.0" prefWidth="600.0">
+    <SplitPane dividerPositions="0.5" prefHeight="400.0" prefWidth="600.0">
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="290.0">
           <Label alignment="CENTER" prefHeight="26.0" prefWidth="94.0" text="Class" AnchorPane.bottomAnchor="187.0" AnchorPane.topAnchor="187.0" />
             <ComboBox fx:id="luggage" layoutX="94.0" layoutY="137.0" onMouseExited="#MouseExited" onMousePressed="#onMousePressedLuggage" prefHeight="26.0" prefWidth="167.0" AnchorPane.bottomAnchor="237.0" AnchorPane.topAnchor="137.0" />
