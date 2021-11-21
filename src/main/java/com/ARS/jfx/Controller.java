@@ -7,13 +7,11 @@ import java.io.IOException;
 
 import java.time.format.DateTimeFormatter;
 
-import java.util.Objects;
 import java.util.Properties;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -94,55 +92,56 @@ public class Controller {
         int price;
         int totalPrice;
         switch (destination.getSelectionModel().getSelectedIndex()) {
-            case 0:
+            case 0 -> {
                 price = 40;
                 totalPrice = price + getLuggage(luggagePrice);
                 value("$" + totalPrice);
-                break;
-            case 1:
+            }
+            case 1 -> {
                 price = 80;
                 totalPrice = price + getLuggage(luggagePrice);
                 value("$" + totalPrice);
-                break;
-            case 2:
+            }
+            case 2 -> {
                 price = 55;
                 totalPrice = price + getLuggage(luggagePrice);
                 value("$" + totalPrice);
-                break;
-            case 3:
+            }
+            case 3 -> {
                 price = 35;
                 totalPrice = price + getLuggage(luggagePrice);
                 value("$" + totalPrice);
-                break;
-            case 4:
+            }
+            case 4 -> {
                 price = 60;
                 totalPrice = price + getLuggage(luggagePrice);
                 value("$" + totalPrice);
-                break;
-            case 5:
+            }
+            case 5 -> {
                 price = 70;
                 totalPrice = price + this.getLuggage(luggagePrice);
                 value("$" + totalPrice);
-                break;
-            case 6:
+            }
+            case 6 -> {
                 price = 100;
                 totalPrice = price + getLuggage(luggagePrice);
                 value("$" + totalPrice);
-                break;
-            case 7:
+            }
+            case 7 -> {
                 price = 25;
                 totalPrice = price + getLuggage(luggagePrice);
                 value("$" + totalPrice);
-                break;
-            case 8:
+            }
+            case 8 -> {
                 price = 30;
                 totalPrice = price + getLuggage(luggagePrice);
                 value("$" + totalPrice);
-                break;
-            case 9:
+            }
+            case 9 -> {
                 price = 20;
                 totalPrice = price + getLuggage(luggagePrice);
                 value("$" + totalPrice);
+            }
         }
     }
 
@@ -162,18 +161,16 @@ public class Controller {
             fillMap();
         }
 
-        FXMLLoader loader2 = new FXMLLoader();
-        loader2.setController(new UsersOption());
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/anotherSmart.fxml")));
-        Scene scene = new Scene(root);
-        stage.setTitle("JavaFX 13");
+        FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("/anotherSmart.fxml"));
+        Scene scene = new Scene(fxmlLoader2.load());
+        stage.setTitle("AIRLINE RESERVATION SYSTEM !");
         stage.setScene(scene);
         stage.show();
     }
 
     private void fillMap() {
         try {
-            FileOutputStream output = new FileOutputStream("C:/coding/programming related/Airline-Reservation-System/src/main/resources/reports.properties");
+            FileOutputStream output = new FileOutputStream("src/main/resources/reports.properties");
             try {
                 Properties prop = new Properties();
                 String dates = this.date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
