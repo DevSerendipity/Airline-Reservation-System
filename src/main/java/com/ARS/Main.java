@@ -8,13 +8,23 @@ import com.ARS.ticket.Ticket;
 import com.ARS.ticket.controller.TicketController;
 import com.ARS.ticket.view.TicketView;
 
-import com.ARS.user.User;
-import com.ARS.user.controller.UserController;
-import com.ARS.user.view.UserView;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-import java.awt.*;
+import java.io.IOException;
 
-public class Main {
+
+public class Main  extends Application{
+
+    public void start(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/done.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("AIRLINE RESERVATION SYSTEM !");
+        stage.setScene(scene);
+        stage.show();
+    }
 
     public static void main(String[] args) {
 
@@ -30,11 +40,13 @@ public class Main {
         TicketView ticketView = new TicketView();
         TicketController ticketController = new TicketController(ticketModel, ticketView);
 
-        isChecking(userController.getAccount_money(), flightController.getPrice());
+        isChecking(userController.getAccountMoney(), flightController.getPrice());
 
         userController.updateView();
         flightController.updateView();
         ticketController.updateView();
+
+        launch(args);
     }
 
 
@@ -42,8 +54,7 @@ public class Main {
         User user = new User();
         user.setName("Robert");
         user.setLast_name("Jr.");
-        user.setAccount_money(user.getAccount_money());
-
+        user.setAccountMoney(user.getAccountMoney());
         return user;
     }
 
@@ -60,7 +71,7 @@ public class Main {
 
     private static Ticket retrieveTicket() {
         Ticket ticket = new Ticket();
-        ticket.setPassenger_name(User.getName());
+        ticket.setPassenger_name(User.getDefaultName());
         ticket.setCompanies(ticket.getCompanies());
         ticket.setFrom(ticket.getFrom());
         ticket.setDestination(ticket.getDestination());
@@ -84,31 +95,10 @@ public class Main {
 
     private static void isChecking(double val1, double val2) {
         if (hasMoney(val1, val2)) {
-            System.out.printf("Customer %s has money for a ticket", User.getName());
+            System.out.printf("Customer %s has money for a ticket", User.getDefaultName());
         } else {
-            System.err.printf("Customer %s doesn't have money for a ticket", User.getName());
-            SystemColor.MAGENTA.brighter();
+            System.err.printf("Customer %s doesn't have money for a ticket", User.getDefaultName());
             System.exit(404);
         }
     }
 }
-// what is current version doing?
-/*
-it is giving me the users name [typed in value]
-it is giving me the users last name [typed in value]
-Flight
-checking does the user got money for the flight [automatic]
-generating random values for fare_tarries, flight price, luggage price ( need to generate standard fare tarries, flight price based on flight, luggage price based on numbers of luggages
-Ticket
-making a condition that the destination and the place he is going from are not the  same [automatic]
-checking does the customer have a ticket
-generating a random value, accessing the passenger name, giving a list of flights,from's,destinations,companies that the program can access [automatic]
-generating a random airline code [automatic]
-List of airline class that the program can access [automatic]
-    private List<String> airline_class = Arrays.asList("World Traveler", "CLUB WORLD", "WORLD TRAVELER PLUS");
-    private String boarding_time;
-    private int gate = (int)(Math.random() * 5.0D + 1.0D);
-    private static final List<String> AVAILABLE_AIRCRAFT_COLUMNS = Arrays.asList("A", "B", "C", "D", "E", "F", "G", "H", "J", "K");
-    private LocalDate date = LocalDate.now();
-    private Image barcode;
- */
