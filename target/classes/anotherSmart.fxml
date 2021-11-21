@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ARS.jfx.Controller">
+    <SplitPane disable="true" dividerPositions="0.3768844221105528" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+            <TextField alignment="CENTER" blendMode="SRC_ATOP" depthTest="DISABLE" editable="false" layoutY="47.0" mouseTransparent="true" nodeOrientation="RIGHT_TO_LEFT" prefHeight="278.0" prefWidth="598.0" text="THANK YOU FOR CHOOSING ISLAM AIRLINE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <font>
+                    <Font name="Arabic Typesetting" size="34.0" />
+                </font>
+                <effect>
+                    <DropShadow />
+                </effect>
+            </TextField>
+        </AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="143.0" prefWidth="598.0">
+            <ImageView fitHeight="256.0" fitWidth="600.0" layoutX="5.0" layoutY="-4.0" nodeOrientation="INHERIT"
+                       pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                       AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <image>
+                    <Image url="@2.jpg"/>
+                </image>
+            </ImageView>
+        </AnchorPane>
+    </SplitPane>
+</AnchorPane>
