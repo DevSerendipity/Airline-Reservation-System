@@ -23,7 +23,6 @@ public class Ticket {
     private int gate = (int)(Math.random() * 5.0D + 1.0D);
     private static final List<String> AVAILABLE_AIRCRAFT_COLUMNS = Arrays.asList("A", "B", "C", "D", "E", "F", "G", "H", "J", "K");
     private LocalDate date = LocalDate.now();
-    private Image barcode;
 
     public String getPassenger_name() {
         return this.passenger_name;
@@ -67,10 +66,6 @@ public class Ticket {
         return this.date;
     }
 
-    public Image getBarcode() {
-        return this.barcode;
-    }
-
     public void setPassenger_name(String passenger_name) {
         this.passenger_name = passenger_name;
     }
@@ -105,7 +100,4 @@ public class Ticket {
         this.date = date;
     }
 
-    public void setBarcode(Image barcode) {
-        this.barcode = barcode;
-    }
 }
