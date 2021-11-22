@@ -38,7 +38,7 @@
             </ImageView>
             <Button fx:id="checkout" defaultButton="true" layoutX="115.0" layoutY="371.0" mnemonicParsing="false" onAction="#onPressed" text="Checkout" underline="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="115.0" AnchorPane.rightAnchor="115.0" AnchorPane.topAnchor="372.79999999999995" />
             <Label alignment="CENTER" layoutY="6.0" prefHeight="18.0" prefWidth="296.0" text="Price" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-            <TextField fx:id="money_id" alignment="CENTER" editable="false" layoutY="186.0" prefHeight="186.0" prefWidth="296.0" promptText="Money" AnchorPane.bottomAnchor="25.99999999999997" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="186.0" />
+            <TextField fx:id="currentPrice" alignment="CENTER" editable="false" layoutY="186.0" prefHeight="186.0" prefWidth="296.0" promptText="Money" AnchorPane.bottomAnchor="25.99999999999997" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="186.0" />
         </AnchorPane>
     </SplitPane>
     <Label alignment="CENTER" prefHeight="18.0" prefWidth="296.0" text="Flight Details" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="304.0" />

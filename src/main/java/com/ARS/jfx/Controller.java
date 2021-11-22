@@ -21,17 +21,17 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class Controller {
+
     private final Ticket ticket = new Ticket();
+    private int luggagePrice;
     @FXML
     private TextField first_name;
     @FXML
     private TextField last_name;
     @FXML
     private DatePicker date;
-
-    private int luggagePrice;
     @FXML
-    private TextField money_id;
+    private TextField currentPrice;
     @FXML
     private Button checkout;
     @FXML
@@ -88,73 +88,68 @@ public class Controller {
 
     @FXML
     void onDisplay() {
-        this.money_id.setDisable(true);
+        this.currentPrice.setDisable(true);
         int price;
-        int totalPrice;
         switch (destination.getSelectionModel().getSelectedIndex()) {
             case 0 -> {
                 price = 40;
-                totalPrice = price + getLuggage(luggagePrice);
-                value("$" + totalPrice);
+                getPrice(price);
             }
             case 1 -> {
                 price = 80;
-                totalPrice = price + getLuggage(luggagePrice);
-                value("$" + totalPrice);
+                getPrice(price);
             }
             case 2 -> {
                 price = 55;
-                totalPrice = price + getLuggage(luggagePrice);
-                value("$" + totalPrice);
+                getPrice(price);
             }
             case 3 -> {
                 price = 35;
-                totalPrice = price + getLuggage(luggagePrice);
-                value("$" + totalPrice);
+                getPrice(price);
             }
             case 4 -> {
                 price = 60;
-                totalPrice = price + getLuggage(luggagePrice);
-                value("$" + totalPrice);
+                getPrice(price);
             }
             case 5 -> {
                 price = 70;
-                totalPrice = price + this.getLuggage(luggagePrice);
-                value("$" + totalPrice);
+                getPrice(price);
             }
             case 6 -> {
                 price = 100;
-                totalPrice = price + getLuggage(luggagePrice);
-                value("$" + totalPrice);
+                getPrice(price);
             }
             case 7 -> {
                 price = 25;
-                totalPrice = price + getLuggage(luggagePrice);
-                value("$" + totalPrice);
+                getPrice(price);
             }
             case 8 -> {
                 price = 30;
-                totalPrice = price + getLuggage(luggagePrice);
-                value("$" + totalPrice);
+                getPrice(price);
             }
             case 9 -> {
                 price = 20;
-                totalPrice = price + getLuggage(luggagePrice);
-                value("$" + totalPrice);
+                getPrice(price);
             }
         }
     }
 
-    private int getLuggage(int luggageP) {
-        return luggageP;
+    private void getPrice(int price) {
+        int totalPrice;
+        totalPrice = price + getLuggagePrice(luggagePrice);
+        value("$" + totalPrice);
+    }
+
+    private int getLuggagePrice(int luggagePrice) {
+        return luggagePrice;
     }
 
     private void value(String values) {
-        money_id.setText(values);
+        currentPrice.setText(values);
     }
 
     @FXML
-    void onPressed() throws IOException {
+    void onPressed() {
         Stage stage = (Stage) checkout.getScene().getWindow();
         stage.close();
         if (!stage.isFocused()) {
@@ -162,11 +157,20 @@ public class Controller {
         }
 
         FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("/anotherSmart.fxml"));
-        Scene scene = new Scene(fxmlLoader2.load());
+        Scene scene = null;
+        try {
+            scene = new Scene(fxmlLoader2.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         stage.setTitle("AIRLINE RESERVATION SYSTEM !");
         stage.setScene(scene);
         stage.show();
+        stage.showAndWait();
+        stage.close();
+
     }
+
 
     private void fillMap() {
         try {
@@ -181,7 +185,7 @@ public class Controller {
                 prop.setProperty("from", this.from.getSelectionModel().getSelectedItem());
                 prop.setProperty("destination", this.destination.getSelectionModel().getSelectedItem());
                 prop.setProperty("Date", dates);
-                prop.setProperty("Price", this.money_id.getText());
+                prop.setProperty("Price", this.currentPrice.getText());
                 prop.store(output, null);
                 System.out.println(prop);
             } catch (Throwable e) {
