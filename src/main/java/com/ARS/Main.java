@@ -28,29 +28,31 @@ public class Main  extends Application{
 
     public static void main(String[] args) {
 
-        User userModel = retrieveUser();
+        User userModel = setUser();
         UserView userView = new UserView();
         UserController userController = new UserController(userModel, userView);
 
-        Flight flightModel = retrieveFlight();
+        Flight flightModel = setFlight();
         FlightView flightView = new FlightView();
         FlightController flightController = new FlightController(flightModel, flightView);
 
-        Ticket ticketModel = retrieveTicket();
+        Ticket ticketModel = setTicket();
         TicketView ticketView = new TicketView();
         TicketController ticketController = new TicketController(ticketModel, ticketView);
 
-        isChecking(userController.getAccountMoney(), flightController.getPrice());
-
-        userController.updateView();
-        flightController.updateView();
-        ticketController.updateView();
+        updateViews(userController, flightController, ticketController);
 
         launch(args);
     }
 
+    private static void updateViews(UserController userController, FlightController flightController, TicketController ticketController) {
+        userController.updateView();
+        flightController.updateView();
+        ticketController.updateView();
+    }
 
-    private static User retrieveUser() {
+
+    private static User setUser() {
         User user = new User();
         user.setName("Robert");
         user.setLast_name("Jr.");
@@ -59,7 +61,7 @@ public class Main  extends Application{
     }
 
 
-    private static Flight retrieveFlight() {
+    private static Flight setFlight() {
         Flight flight = new Flight();
         flight.setFare_tarries(flight.getFare_tarries());
         flight.setPrice(flight.getPrice());
@@ -69,32 +71,49 @@ public class Main  extends Application{
     }
 
 
-    private static Ticket retrieveTicket() {
+    private static Ticket setTicket() {
         Ticket ticket = new Ticket();
-        ticket.setPassenger_name(User.getDefaultName());
-        ticket.setCompanies(ticket.getCompanies());
-        ticket.setFrom(ticket.getFrom());
-        ticket.setDestination(ticket.getDestination());
+        setUserData(ticket);
+        setAirlineData(ticket);
+        setBoardingData(ticket);
+        return ticket;
+    }
 
-        while (ticket.getFrom() == ticket.getDestination()) {
-            ticket.setFrom(ticket.getFrom());
-            ticket.setDestination(ticket.getDestination());
-        }
-        ticket.setIATA_airline_code(ticket.getIATA_airline_code());
+    private static void setBoardingData(Ticket ticket) {
         ticket.setAirline_class(ticket.getAirline_class());
         ticket.setBoarding_time(ticket.getBoarding_time());
         ticket.setGate(ticket.getGate());
         ticket.setDate(ticket.getDate());
         ticket.calculateNewRandomSeat();
-        return ticket;
     }
 
-    private static boolean hasMoney(double money, double price) {
-        return money > price;
+    private static void setUserData(Ticket ticket) {
+        ticket.setPassenger_name(User.getDefaultName());
     }
 
-    private static void isChecking(double val1, double val2) {
-        if (hasMoney(val1, val2)) {
+    private static void setAirlineData(Ticket ticket) {
+        ticket.setCompanies(ticket.getCompanies());
+        setTravelingPoints(ticket);
+        ticket.setIATA_airline_code(ticket.getIATA_airline_code());
+    }
+
+    private static void setTravelingPoints(Ticket ticket) {
+        while (isMatchingDestination(ticket)) {
+            ticket.setFrom(ticket.getFrom());
+            ticket.setDestination(ticket.getDestination());
+        }
+    }
+
+    private static boolean isMatchingDestination(Ticket ticket) {
+        return ticket.getFrom() == ticket.getDestination();
+    }
+
+    private static boolean hasMoney() {
+        return setUser().getAccountMoney() > setFlight().getPrice();
+    }
+
+    private static void isChecking() {
+        if (hasMoney()) {
             System.out.printf("Customer %s has money for a ticket", User.getDefaultName());
         } else {
             System.err.printf("Customer %s doesn't have money for a ticket", User.getDefaultName());
