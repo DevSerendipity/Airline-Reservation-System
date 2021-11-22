@@ -18,7 +18,6 @@ public class Flight {
         return this.luggage;
     }
 
-
     public void setFare_tarries(int fare_tarries) {
         this.fare_tarries = fare_tarries;
     }
