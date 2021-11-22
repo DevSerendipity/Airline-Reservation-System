@@ -2,8 +2,8 @@ package com.ARS.flight;
 
 import org.decimal4j.util.DoubleRounder;
 
-
 public class Flight {
+
     private int fare_tarries = (int)(Math.random() * 30.0D);
     private double price = Math.random() * 60 + 22D;
     private int luggage = (int)(Math.random() * 19D);
