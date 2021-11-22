@@ -3,13 +3,6 @@ package com.ARS.ticket.controller;
 import com.ARS.ticket.Ticket;
 import com.ARS.ticket.view.TicketView;
 
-import java.awt.Image;
-
-import java.time.LocalDate;
-
-import java.util.Arrays;
-import java.util.List;
-
 public class TicketController {
     Ticket model;
     TicketView view;

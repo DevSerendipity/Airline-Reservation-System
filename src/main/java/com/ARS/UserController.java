@@ -9,10 +9,6 @@ public class UserController {
         this.view = view;
     }
 
-    public double getAccountMoney() {
-        return model.getAccountMoney();
-    }
-
     public void updateView() {
         view.UserDetails(User.getDefaultName(), model.getLast_name());
     }

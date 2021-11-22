@@ -1,7 +1,5 @@
 package com.ARS.ticket;
 
-import java.awt.Image;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
