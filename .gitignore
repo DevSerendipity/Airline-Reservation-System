@@ -3,9 +3,10 @@
 .idea
 
 /src/main/resources/reports.properties
+
+./target
 # Log file
 *.log
-./target
 # BlueJ files
 *.ctxt
 
