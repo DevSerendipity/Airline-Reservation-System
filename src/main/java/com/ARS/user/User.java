@@ -1,9 +1,9 @@
-package com.ARS;
+package com.ARS.user;
 
 public class User {
     private static String defaultName = "Bob";
     private String last_name;
-    private double accountMoney = ((int) (Math.random() * 1000.0D));
+    private double accountMoney = ((int) (Math.random() * 100));
 
     public static String getDefaultName() {
         return defaultName;

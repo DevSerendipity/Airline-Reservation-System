@@ -12,10 +12,6 @@ public class TicketController {
         this.view = view;
     }
 
-   /* public void setFrom(String[] from) {
-        this.model.setFrom(Arrays.asList(from));
-    }*/
-
     public void updateView() {
         this.view.TicketDetails(this.model.getPassenger_name(), this.model.getCompanies(), this.model.getFrom(), this.model.getDestination(), this.model.getIATA_airline_code(), this.model.getAirline_class(), this.model.getBoarding_time(), this.model.getGate(), this.model.calculateNewRandomSeat(), this.model.getDate());
     }

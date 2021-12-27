@@ -1,4 +1,7 @@
-package com.ARS;
+package com.ARS.user.controller;
+
+import com.ARS.user.User;
+import com.ARS.user.view.UserView;
 
 public class UserController {
     User model;

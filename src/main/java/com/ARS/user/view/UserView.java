@@ -1,4 +1,4 @@
-package com.ARS;
+package com.ARS.user.view;
 
 public class UserView {
     public void UserDetails(String name, String last_name) {

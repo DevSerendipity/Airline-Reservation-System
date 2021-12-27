@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Ticket {
+
     private static final Random random = new Random();
     private String passenger_name;
     private List<String> companies = Arrays.asList("Qatar Airways", "Singapore Airlines", "ANA All Nippon Airways", "Cathay Pacific Airways", "Emirates", "EVA Air");

@@ -6,7 +6,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import java.time.format.DateTimeFormatter;
-
 import java.util.Properties;
 
 import javafx.fxml.FXML;
@@ -48,7 +47,6 @@ public class Controller {
         if (!luggage.getItems().contains(1)) {
             luggage.getItems().addAll(1, 2, 3);
         }
-
     }
 
     @FXML
@@ -166,11 +164,8 @@ public class Controller {
         stage.setTitle("AIRLINE RESERVATION SYSTEM !");
         stage.setScene(scene);
         stage.show();
-        stage.showAndWait();
-        stage.close();
 
     }
-
 
     private void fillMap() {
         try {

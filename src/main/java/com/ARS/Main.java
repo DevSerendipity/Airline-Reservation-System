@@ -8,6 +8,9 @@ import com.ARS.ticket.Ticket;
 import com.ARS.ticket.controller.TicketController;
 import com.ARS.ticket.view.TicketView;
 
+import com.ARS.user.User;
+import com.ARS.user.controller.UserController;
+import com.ARS.user.view.UserView;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -27,6 +30,8 @@ public class Main  extends Application{
     }
 
     public static void main(String[] args) {
+
+        isChecking();
 
         User userModel = setUser();
         UserView userView = new UserView();
@@ -51,7 +56,6 @@ public class Main  extends Application{
         ticketController.updateView();
     }
 
-
     private static User setUser() {
         User user = new User();
         user.setName("Robert");
@@ -59,7 +63,6 @@ public class Main  extends Application{
         user.setAccountMoney(user.getAccountMoney());
         return user;
     }
-
 
     private static Flight setFlight() {
         Flight flight = new Flight();
@@ -69,7 +72,6 @@ public class Main  extends Application{
 
         return flight;
     }
-
 
     private static Ticket setTicket() {
         Ticket ticket = new Ticket();
