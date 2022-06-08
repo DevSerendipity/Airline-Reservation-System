@@ -14,6 +14,6 @@ public class FlightController {
     }
 
     public void updateView() {
-        this.view.FlightDetails(this.model.getFare_tarries(), this.model.getPrice(), this.model.getLuggage());
+        this.view.FlightDetails(this.model.getMoneySpentOnFlight(), this.model.getPrice(), this.model.getLuggage());
     }
 }

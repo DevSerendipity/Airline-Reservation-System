@@ -65,7 +65,7 @@ public class Main extends Application {
 
     private static Flight setFlight() {
         Flight flight = new Flight();
-        flight.setFare_tarries(flight.getFare_tarries());
+        flight.setMoneySpentOnFlight(flight.getMoneySpentOnFlight());
         flight.setPrice(flight.getPrice());
         flight.setLuggage(flight.getLuggage());
 
