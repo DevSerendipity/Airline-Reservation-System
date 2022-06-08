@@ -66,8 +66,8 @@ public class Main extends Application {
     private static Flight setFlight() {
         Flight flight = new Flight();
         flight.setMoneySpentOnFlight(flight.getMoneySpentOnFlight());
-        flight.setPrice(flight.getPrice());
-        flight.setLuggage(flight.getLuggage());
+        flight.setFlightPrice(flight.getFlightPrice());
+        flight.setLuggageQuantity(flight.getLuggageQuantity());
 
         return flight;
     }
@@ -110,7 +110,7 @@ public class Main extends Application {
     }
 
     private static boolean hasMoney() {
-        return setUser().getAccountMoney() > setFlight().getPrice();
+        return setUser().getAccountMoney() > setFlight().getFlightPrice();
     }
 
     private static void isChecking() {
