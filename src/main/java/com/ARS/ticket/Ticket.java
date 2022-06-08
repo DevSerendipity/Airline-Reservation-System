@@ -16,10 +16,10 @@ public class Ticket {
     private List<String> companies = Arrays.asList("Qatar Airways", "Singapore Airlines", "ANA All Nippon Airways", "Cathay Pacific Airways", "Emirates", "EVA Air");
     private List<String> from = Arrays.asList("Finland", "United States", "Sweden", "Denmark", "Norway", "Hong Kong", "New Zealand", "Canada", "Australia", "France");
     private List<String> destination = Arrays.asList("United Kingdom", "Thailand", "Germany", "Mexico", "Turkey", "Italy", "China", "United States", "Spain", "France");
-    private int IATA_airline_code = (int)(Math.random() * 99999.0D);
+    private int IATA_airline_code = (int) (Math.random() * 99999.0D);
     private List<String> airline_class = Arrays.asList("World Traveler", "CLUB WORLD", "WORLD TRAVELER PLUS");
     private String boarding_time;
-    private int gate = (int)(Math.random() * 5.0D + 1.0D);
+    private int gate = (int) (Math.random() * 5.0D + 1.0D);
     private static final List<String> AVAILABLE_AIRCRAFT_COLUMNS = Arrays.asList("A", "B", "C", "D", "E", "F", "G", "H", "J", "K");
     private LocalDate date = LocalDate.now();
 
@@ -48,7 +48,7 @@ public class Ticket {
     }
 
     public String getBoarding_time() {
-        LocalDateTime now = LocalDateTime.of(1, 1, (int)(Math.random() * 4.0D + 1.0D), (int)(Math.random() * 24.0D), (int)(Math.random() * 60.0D));
+        LocalDateTime now = LocalDateTime.of(1, 1, (int) (Math.random() * 4.0D + 1.0D), (int) (Math.random() * 24.0D), (int) (Math.random() * 60.0D));
         boarding_time = now.format(DateTimeFormatter.ofPattern("dd HH:mm"));
         return boarding_time;
     }
@@ -85,7 +85,9 @@ public class Ticket {
         this.IATA_airline_code = IATA_airline_code;
     }
 
-    public void setAirline_class(List<String> airline_class){ this.airline_class = airline_class; }
+    public void setAirline_class(List<String> airline_class) {
+        this.airline_class = airline_class;
+    }
 
     public void setBoarding_time(String boarding_time) {
         this.boarding_time = boarding_time;

@@ -41,7 +41,7 @@ public class Controller {
     private ComboBox<String> classes;
     @FXML
     private ComboBox<String> from;
-    
+
     @FXML
     void MouseExited() {
         if (!luggage.getItems().contains(1)) {

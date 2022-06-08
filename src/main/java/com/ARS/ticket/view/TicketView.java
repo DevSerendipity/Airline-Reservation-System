@@ -21,7 +21,7 @@ public class TicketView {
         System.out.println("-------------");
     }
 
-    private String randomElement(List<String> element){
-       return element.get((int)(Math.random() * element.size()));
+    private String randomElement(List<String> element) {
+        return element.get((int) (Math.random() * element.size()));
     }
 }
