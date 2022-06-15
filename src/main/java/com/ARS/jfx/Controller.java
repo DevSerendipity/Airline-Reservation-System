@@ -24,9 +24,9 @@ public class Controller {
     private final Ticket ticket = new Ticket();
     private int luggagePrice;
     @FXML
-    private TextField first_name;
+    private TextField firstName;
     @FXML
-    private TextField last_name;
+    private TextField lastName;
     @FXML
     private DatePicker date;
     @FXML
@@ -34,7 +34,7 @@ public class Controller {
     @FXML
     private Button checkout;
     @FXML
-    private ComboBox<Integer> luggage;
+    private ComboBox<Integer> luggageQuantity;
     @FXML
     private ComboBox<String> destination;
     @FXML
@@ -44,20 +44,20 @@ public class Controller {
 
     @FXML
     void MouseExited() {
-        if (!luggage.getItems().contains(1)) {
-            luggage.getItems().addAll(1, 2, 3);
+        if (!luggageQuantity.getItems().contains(1)) {
+            luggageQuantity.getItems().addAll(1, 2, 3);
         }
     }
 
     @FXML
     void onMousePressedLuggage() {
-        if (luggage.getSelectionModel().getSelectedIndex() == 0) {
+        if (luggageQuantity.getSelectionModel().getSelectedIndex() == 0) {
             luggagePrice = 0;
             luggagePrice += 19;
-        } else if (luggage.getSelectionModel().getSelectedIndex() == 1) {
+        } else if (luggageQuantity.getSelectionModel().getSelectedIndex() == 1) {
             luggagePrice = 0;
             luggagePrice += 27;
-        } else if (this.luggage.getSelectionModel().getSelectedIndex() == 2) {
+        } else if (this.luggageQuantity.getSelectionModel().getSelectedIndex() == 2) {
             luggagePrice = 0;
             luggagePrice += 35;
         }
@@ -65,21 +65,21 @@ public class Controller {
 
     @FXML
     void onClassPressed() {
-        for (int i = 0; i < ticket.getAirline_class().size(); ++i) {
+        for (int i = 0;i < ticket.getAirline_class().size();++i) {
             classes.getItems().add(ticket.getAirline_class().get(i));
         }
     }
 
     @FXML
     void onDestinationPressed() {
-        for (int i = 0; i < ticket.getDestination().size(); ++i) {
+        for (int i = 0;i < ticket.getDestination().size();++i) {
             destination.getItems().add(ticket.getDestination().get(i));
         }
     }
 
     @FXML
     void onFromPressed() {
-        for (int i = 0; i < ticket.getFrom().size(); ++i) {
+        for (int i = 0;i < ticket.getFrom().size();++i) {
             from.getItems().add(ticket.getFrom().get(i));
         }
     }
@@ -155,7 +155,7 @@ public class Controller {
         }
 
         FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("/anotherSmart.fxml"));
-        Scene scene = null;
+        Scene      scene       = null;
         try {
             scene = new Scene(fxmlLoader2.load());
         } catch (IOException e) {
@@ -171,10 +171,10 @@ public class Controller {
         try {
             FileOutputStream output = new FileOutputStream("src/main/resources/reports.properties");
             try {
-                Properties prop = new Properties();
-                String dates = this.date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-                prop.setProperty("firstName", this.first_name.getText());
-                prop.setProperty("last_name", this.last_name.getText());
+                Properties prop  = new Properties();
+                String     dates = this.date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+                prop.setProperty("firstName", this.firstName.getText());
+                prop.setProperty("last_name", this.lastName.getText());
                 prop.setProperty("luggage_price", String.valueOf(this.luggagePrice));
                 prop.setProperty("class", this.classes.getSelectionModel().getSelectedItem());
                 prop.setProperty("from", this.from.getSelectionModel().getSelectedItem());
