@@ -22,7 +22,7 @@ public class Main extends Application {
 
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/done.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
+        Scene      scene      = new Scene(fxmlLoader.load());
         stage.setTitle("AIRLINE RESERVATION SYSTEM !");
         stage.setScene(scene);
         stage.show();
@@ -32,16 +32,16 @@ public class Main extends Application {
 
         isChecking();
 
-        User userModel = setUser();
-        UserView userView = new UserView();
+        User           userModel      = setUser();
+        UserView       userView       = new UserView();
         UserController userController = new UserController(userModel, userView);
 
-        Flight flightModel = setFlight();
-        FlightView flightView = new FlightView();
+        Flight           flightModel      = setFlight();
+        FlightView       flightView       = new FlightView();
         FlightController flightController = new FlightController(flightModel, flightView);
 
-        Ticket ticketModel = setTicket();
-        TicketView ticketView = new TicketView();
+        Ticket           ticketModel      = setTicket();
+        TicketView       ticketView       = new TicketView();
         TicketController ticketController = new TicketController(ticketModel, ticketView);
 
         updateViews(userController, flightController, ticketController);
@@ -114,7 +114,7 @@ public class Main extends Application {
     }
 
     private static void isChecking() {
-        if (hasMoney()) {
+        if ( hasMoney() ) {
             System.out.printf("Customer %s has money for a ticket", User.getDefaultName());
         } else {
             System.err.printf("Customer %s doesn't have money for a ticket", User.getDefaultName());

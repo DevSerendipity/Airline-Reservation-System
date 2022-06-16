@@ -9,10 +9,10 @@ public class UserController {
 
     public UserController(User model, UserView view) {
         this.model = model;
-        this.view = view;
+        this.view  = view;
     }
 
     public void updateView() {
-        view.UserDetails(User.getDefaultName(), model.getLast_name());
+        view.userDetails(User.getDefaultName(), model.getLast_name());
     }
 }

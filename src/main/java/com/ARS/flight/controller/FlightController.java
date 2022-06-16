@@ -10,7 +10,7 @@ public class FlightController {
 
     public FlightController(Flight model, FlightView view) {
         this.model = model;
-        this.view = view;
+        this.view  = view;
     }
 
     public void updateView() {
