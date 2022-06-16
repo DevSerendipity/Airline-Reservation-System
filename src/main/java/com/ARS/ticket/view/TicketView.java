@@ -6,7 +6,7 @@ import java.util.List;
 
 public class TicketView {
 
-    public void TicketDetails(String passenger_name, List<String> companies, List<String> from, List<String> destination, int IATA_airline_code, List<String> airline_class, String boarding_time, int gate, String seat, LocalDate date) {
+    public void ticketDetails(String passenger_name, List<String> companies, List<String> from, List<String> destination, int IATA_airline_code, List<String> airline_class, String boarding_time, int gate, String seat, LocalDate date) {
         System.out.println("Ticket: ");
         System.out.println("Passenger Name: " + passenger_name);
         System.out.println("Company Name: " + randomElement(companies));
