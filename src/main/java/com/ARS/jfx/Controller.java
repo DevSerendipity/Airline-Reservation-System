@@ -43,43 +43,47 @@ public class Controller {
     private ComboBox<String> from;
 
     @FXML
-    void MouseExited() {
-        if (!luggageQuantity.getItems().contains(1)) {
+    void onMouseExited() {
+        int firstItem = 1;
+        if ( !luggageQuantity.getItems().contains(firstItem) ) {
             luggageQuantity.getItems().addAll(1, 2, 3);
         }
     }
 
     @FXML
     void onMousePressedLuggage() {
-        if (luggageQuantity.getSelectionModel().getSelectedIndex() == 0) {
+        int smallLuggagePrice  = 19;
+        int mediumLuggagePrice = 27;
+        int largeLuggagePrice  = 35;
+        if ( luggageQuantity.getSelectionModel().getSelectedIndex() == 0 ) {
             luggagePrice = 0;
-            luggagePrice += 19;
-        } else if (luggageQuantity.getSelectionModel().getSelectedIndex() == 1) {
+            luggagePrice += smallLuggagePrice;
+        } else if ( luggageQuantity.getSelectionModel().getSelectedIndex() == 1 ) {
             luggagePrice = 0;
-            luggagePrice += 27;
-        } else if (this.luggageQuantity.getSelectionModel().getSelectedIndex() == 2) {
+            luggagePrice += mediumLuggagePrice;
+        } else if ( this.luggageQuantity.getSelectionModel().getSelectedIndex() == 2 ) {
             luggagePrice = 0;
-            luggagePrice += 35;
+            luggagePrice += largeLuggagePrice;
         }
     }
 
     @FXML
     void onClassPressed() {
-        for (int i = 0;i < ticket.getAirline_class().size();++i) {
+        for ( int i = 0; i < ticket.getAirline_class().size(); ++i ) {
             classes.getItems().add(ticket.getAirline_class().get(i));
         }
     }
 
     @FXML
     void onDestinationPressed() {
-        for (int i = 0;i < ticket.getDestination().size();++i) {
+        for ( int i = 0; i < ticket.getDestination().size(); ++i ) {
             destination.getItems().add(ticket.getDestination().get(i));
         }
     }
 
     @FXML
     void onFromPressed() {
-        for (int i = 0;i < ticket.getFrom().size();++i) {
+        for ( int i = 0; i < ticket.getFrom().size(); ++i ) {
             from.getItems().add(ticket.getFrom().get(i));
         }
     }
@@ -129,6 +133,10 @@ public class Controller {
                 price = 20;
                 getPrice(price);
             }
+            default -> {
+                price = 10;
+                getPrice(price);
+            }
         }
     }
 
@@ -147,10 +155,10 @@ public class Controller {
     }
 
     @FXML
-    void onPressed() {
+    final void onPressed() {
         Stage stage = (Stage) checkout.getScene().getWindow();
         stage.close();
-        if (!stage.isFocused()) {
+        if ( !stage.isFocused() ) {
             fillMap();
         }
 
