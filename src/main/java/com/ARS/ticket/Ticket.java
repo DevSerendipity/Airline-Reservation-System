@@ -12,7 +12,7 @@ import java.util.Random;
 public class Ticket {
 
     private static final Random random = new Random();
-    private String passenger_name;
+    private String passengerName;
     private List<String> companies = Arrays.asList("Qatar Airways", "Singapore Airlines", "ANA All Nippon Airways",
                                                    "Cathay Pacific Airways", "Emirates", "EVA Air");
     private List<String> from = Arrays.asList("Finland", "United States", "Sweden", "Denmark", "Norway", "Hong Kong",
@@ -28,7 +28,7 @@ public class Ticket {
     private LocalDate date = LocalDate.now();
 
     public String getPassengerName() {
-        return this.passenger_name;
+        return this.passengerName;
     }
 
     public List<String> getCompanies() {
@@ -63,8 +63,8 @@ public class Ticket {
     }
 
     public String calculateNewRandomSeat() {
-        int NUMBER_OF_SEATS = 347;
-        return random.nextInt(NUMBER_OF_SEATS) + AVAILABLE_AIRCRAFT_COLUMNS.get(
+        int numberOfSeats = 347;
+        return random.nextInt(numberOfSeats) + AVAILABLE_AIRCRAFT_COLUMNS.get(
                 random.nextInt(AVAILABLE_AIRCRAFT_COLUMNS.size()));
     }
 
@@ -73,7 +73,7 @@ public class Ticket {
     }
 
     public void setPassengerName(String passengerName) {
-        this.passenger_name = passengerName;
+        this.passengerName = passengerName;
     }
 
     public void setCompanies(List<String> companies) {
