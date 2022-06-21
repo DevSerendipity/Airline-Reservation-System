@@ -145,7 +145,11 @@
     <module name="NoWhitespaceAfter"/>
     <module name="NoWhitespaceBefore"/>
     <module name="OperatorWrap"/>
-    <module name="ParenPad"/>
+    <module name="ParenPad">
+          <property name="tokens" value="LITERAL_FOR, LITERAL_CATCH,
+          SUPER_CTOR_CALL"/>
+          <property name="option" value="space"/>
+    </module>
     <module name="TypecastParenPad"/>
     <module name="WhitespaceAfter"/>
     <module name="WhitespaceAround"/>
