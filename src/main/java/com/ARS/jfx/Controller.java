@@ -86,7 +86,7 @@ public class Controller {
     @FXML void onDisplay() {
         this.currentPrice.setDisable( true );
         int price;
-        switch (destination.getSelectionModel().getSelectedIndex()) {
+        switch ( destination.getSelectionModel().getSelectedIndex() ) {
             case 0 -> {
                 price = 40;
                 getPrice( price );
@@ -156,7 +156,7 @@ public class Controller {
         Scene scene = null;
         try {
             scene = new Scene( fxmlLoader2.load() );
-        } catch (IOException e) {
+        } catch ( IOException e ) {
             e.printStackTrace();
         }
         stage.setTitle( "AIRLINE RESERVATION SYSTEM !" );
@@ -181,16 +181,16 @@ public class Controller {
                 prop.setProperty( "Price", this.currentPrice.getText() );
                 prop.store( output, null );
                 System.out.println( prop );
-            } catch (Throwable e) {
+            } catch ( Throwable e ) {
                 try {
                     output.close();
-                } catch (Throwable el) {
+                } catch ( Throwable el ) {
                     e.addSuppressed( el );
                 }
                 throw e;
             }
             output.close();
-        } catch (IOException exception) {
+        } catch ( IOException exception ) {
             exception.printStackTrace();
         }
     }
