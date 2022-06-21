@@ -5,15 +5,16 @@ import com.ARS.flight.view.FlightView;
 
 public class FlightController {
 
-    Flight model;
-    FlightView view;
+    private final Flight model;
+    private final FlightView view;
 
     public FlightController(Flight model, FlightView view) {
         this.model = model;
-        this.view  = view;
+        this.view = view;
     }
 
     public void updateView() {
-        this.view.FlightDetails(this.model.getMoneySpentOnFlight(), this.model.getFlightPrice(), this.model.getLuggageQuantity());
+        this.view.flightDetails(this.model.getMoneySpentOnFlight(), this.model.getFlightPrice(),
+                                this.model.getLuggageQuantity());
     }
 }

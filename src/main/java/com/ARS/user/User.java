@@ -2,15 +2,15 @@ package com.ARS.user;
 
 public class User {
     private static String defaultName = "Bob";
-    private String last_name;
+    private String lastName;
     private double accountMoney = ((int) (Math.random() * 100));
 
     public static String getDefaultName() {
         return defaultName;
     }
 
-    public String getLast_name() {
-        return this.last_name;
+    public String getLastName() {
+        return this.lastName;
     }
 
     public double getAccountMoney() {
@@ -21,8 +21,8 @@ public class User {
         User.defaultName = name;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public void setAccountMoney(double accountMoney) {

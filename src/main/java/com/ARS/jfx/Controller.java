@@ -42,19 +42,17 @@ public class Controller {
     @FXML
     private ComboBox<String> from;
 
-    @FXML
-    void onMouseExited() {
+    @FXML void onMouseExited() {
         int firstItem = 1;
         if ( !luggageQuantity.getItems().contains(firstItem) ) {
             luggageQuantity.getItems().addAll(1, 2, 3);
         }
     }
 
-    @FXML
-    void onMousePressedLuggage() {
-        int smallLuggagePrice  = 19;
+    @FXML void onMousePressedLuggage() {
+        int smallLuggagePrice = 19;
         int mediumLuggagePrice = 27;
-        int largeLuggagePrice  = 35;
+        int largeLuggagePrice = 35;
         if ( luggageQuantity.getSelectionModel().getSelectedIndex() == 0 ) {
             luggagePrice = 0;
             luggagePrice += smallLuggagePrice;
@@ -67,29 +65,25 @@ public class Controller {
         }
     }
 
-    @FXML
-    void onClassPressed() {
-        for ( int i = 0; i < ticket.getAirline_class().size(); ++i ) {
-            classes.getItems().add(ticket.getAirline_class().get(i));
+    @FXML void onClassPressed() {
+        for ( int i = 0; i < ticket.getAirlineClass().size(); ++i ) {
+            classes.getItems().add(ticket.getAirlineClass().get(i));
         }
     }
 
-    @FXML
-    void onDestinationPressed() {
+    @FXML void onDestinationPressed() {
         for ( int i = 0; i < ticket.getDestination().size(); ++i ) {
             destination.getItems().add(ticket.getDestination().get(i));
         }
     }
 
-    @FXML
-    void onFromPressed() {
+    @FXML void onFromPressed() {
         for ( int i = 0; i < ticket.getFrom().size(); ++i ) {
             from.getItems().add(ticket.getFrom().get(i));
         }
     }
 
-    @FXML
-    void onDisplay() {
+    @FXML void onDisplay() {
         this.currentPrice.setDisable(true);
         int price;
         switch (destination.getSelectionModel().getSelectedIndex()) {
@@ -154,8 +148,7 @@ public class Controller {
         currentPrice.setText(values);
     }
 
-    @FXML
-    final void onPressed() {
+    @FXML final void onPressed() {
         Stage stage = (Stage) checkout.getScene().getWindow();
         stage.close();
         if ( !stage.isFocused() ) {
@@ -163,7 +156,7 @@ public class Controller {
         }
 
         FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("/anotherSmart.fxml"));
-        Scene      scene       = null;
+        Scene scene = null;
         try {
             scene = new Scene(fxmlLoader2.load());
         } catch (IOException e) {
@@ -179,8 +172,8 @@ public class Controller {
         try {
             FileOutputStream output = new FileOutputStream("src/main/resources/reports.properties");
             try {
-                Properties prop  = new Properties();
-                String     dates = this.date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+                Properties prop = new Properties();
+                String dates = this.date.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
                 prop.setProperty("firstName", this.firstName.getText());
                 prop.setProperty("last_name", this.lastName.getText());
                 prop.setProperty("luggage_price", String.valueOf(this.luggagePrice));

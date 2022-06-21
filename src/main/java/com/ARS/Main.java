@@ -22,7 +22,7 @@ public class Main extends Application {
 
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/done.fxml"));
-        Scene      scene      = new Scene(fxmlLoader.load());
+        Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("AIRLINE RESERVATION SYSTEM !");
         stage.setScene(scene);
         stage.show();
@@ -32,16 +32,16 @@ public class Main extends Application {
 
         isChecking();
 
-        User           userModel      = setUser();
-        UserView       userView       = new UserView();
+        User userModel = setUser();
+        UserView userView = new UserView();
         UserController userController = new UserController(userModel, userView);
 
-        Flight           flightModel      = setFlight();
-        FlightView       flightView       = new FlightView();
+        Flight flightModel = setFlight();
+        FlightView flightView = new FlightView();
         FlightController flightController = new FlightController(flightModel, flightView);
 
-        Ticket           ticketModel      = setTicket();
-        TicketView       ticketView       = new TicketView();
+        Ticket ticketModel = setTicket();
+        TicketView ticketView = new TicketView();
         TicketController ticketController = new TicketController(ticketModel, ticketView);
 
         updateViews(userController, flightController, ticketController);
@@ -49,7 +49,8 @@ public class Main extends Application {
         launch(args);
     }
 
-    private static void updateViews(UserController userController, FlightController flightController, TicketController ticketController) {
+    private static void updateViews(UserController userController, FlightController flightController,
+                                    TicketController ticketController) {
         userController.updateView();
         flightController.updateView();
         ticketController.updateView();
@@ -58,7 +59,7 @@ public class Main extends Application {
     private static User setUser() {
         User user = new User();
         user.setName("Robert");
-        user.setLast_name("Jr.");
+        user.setLastName("Jr.");
         user.setAccountMoney(user.getAccountMoney());
         return user;
     }
@@ -81,21 +82,21 @@ public class Main extends Application {
     }
 
     private static void setBoardingData(Ticket ticket) {
-        ticket.setAirline_class(ticket.getAirline_class());
-        ticket.setBoarding_time(ticket.getBoarding_time());
+        ticket.setAirlineClass(ticket.getAirlineClass());
+        ticket.setBoardingTime(ticket.getBoardingTime());
         ticket.setGate(ticket.getGate());
         ticket.setDate(ticket.getDate());
         ticket.calculateNewRandomSeat();
     }
 
     private static void setUserData(Ticket ticket) {
-        ticket.setPassenger_name(User.getDefaultName());
+        ticket.setPassengerName(User.getDefaultName());
     }
 
     private static void setAirlineData(Ticket ticket) {
         ticket.setCompanies(ticket.getCompanies());
         setTravelingPoints(ticket);
-        ticket.setIATA_airline_code(ticket.getIATA_airline_code());
+        ticket.setAirlineCode(ticket.getAirlineCode());
     }
 
     private static void setTravelingPoints(Ticket ticket) {
