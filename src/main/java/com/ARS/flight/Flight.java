@@ -4,32 +4,32 @@ import org.decimal4j.util.DoubleRounder;
 
 public class Flight {
 
-    private int fare_tarries = (int) (Math.random() * 30.0D);
-    private double price = Math.random() * 60 + 22D;
-    private int luggage = (int) (Math.random() * 19D);
+    private int moneySpentOnFlight = (int) ( Math.random() * 30.0D );
+    private double flightPrice = Math.random() * 60 + 22D;
+    private int luggageQuantity = (int) ( Math.random() * 19D );
 
-    public int getFare_tarries() {
-        return this.fare_tarries;
+    public int getMoneySpentOnFlight() {
+        return this.moneySpentOnFlight;
     }
 
-    public double getPrice() {
-        return DoubleRounder.round(this.price, 2);
+    public double getFlightPrice() {
+        return DoubleRounder.round( this.flightPrice, 2 );
     }
 
-    public int getLuggage() {
-        return this.luggage;
+    public int getLuggageQuantity() {
+        return this.luggageQuantity;
     }
 
-    public void setFare_tarries(int fare_tarries) {
-        this.fare_tarries = fare_tarries;
+    public void setMoneySpentOnFlight( int moneySpentOnFlight ) {
+        this.moneySpentOnFlight = moneySpentOnFlight;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setFlightPrice( double flightPrice ) {
+        this.flightPrice = flightPrice;
     }
 
-    public void setLuggage(int luggage) {
-        this.luggage = luggage;
+    public void setLuggageQuantity( int luggageQuantity ) {
+        this.luggageQuantity = luggageQuantity;
     }
 
 }
